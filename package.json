@@ -1,0 +1,53 @@
+{
+  "name": "mataair-desktop",
+  "productName": "Majalah Mata Air",
+  "author": {
+    "name": "Orbital Labs",
+    "email": "ops.orbital@gmail.com"
+  },
+  "private": true,
+  "version": "0.0.1",
+  "license": "MIT",
+  "main": "dist/electron/main/index.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "electron:build": "electron-builder"
+  },
+  "engines": {
+    "node": ">=14.17.0"
+  },
+  "dependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.30.0",
+    "@typescript-eslint/parser": "^5.30.0",
+    "eslint": "^8.18.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-react": "^7.30.1",
+    "prettier": "^2.7.1"
+  },
+  "devDependencies": {
+    "@tanstack/query-sync-storage-persister": "^4.26.0",
+    "@tanstack/react-query": "^4.26.0",
+    "@tanstack/react-query-persist-client": "^4.26.0",
+    "@types/react": "^18.0.12",
+    "@types/react-dom": "^18.0.5",
+    "@vitejs/plugin-react": "^1.3.2",
+    "antd-mobile": "^5.28.1",
+    "axios": "^1.3.4",
+    "dayjs": "^1.11.7",
+    "electron": "^19.0.3",
+    "electron-builder": "^23.0.3",
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0",
+    "react-h5-audio-player": "^3.8.6",
+    "react-pdf": "^6.2.2",
+    "react-router-dom": "^6.8.2",
+    "typescript": "^4.7.3",
+    "vite": "^2.9.10",
+    "vite-plugin-electron": "^0.6.1"
+  },
+  "env": {
+    "VITE_DEV_SERVER_HOST": "127.0.0.1",
+    "VITE_DEV_SERVER_PORT": 7777
+  }
+}

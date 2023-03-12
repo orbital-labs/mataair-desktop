@@ -1,0 +1,31 @@
+@media (prefers-color-scheme: dark) {
+  :root:root {
+    --body-bg-color: #111316;
+    --container-width: 480px;
+    --container-bg-color: #111316;
+    --content-hover-color: #484848;
+    --adm-font-size-main: 16px;
+    --adm-font-family: Nunito, "Helvetica Neue", helvetica, segoe ui, arial, roboto,
+      "PingFang SC", "miui", "Hiragino Sans GB", "Microsoft Yahei", sans-serif;
+    --adm-color-primary: #366d9f;
+    --adm-color-background: #343435;
+    --adm-color-box: #1D1E1E;
+    --adm-color-text: #fff;
+  }
+
+  input {
+    background-color: red;
+  }
+
+  .adm-search-bar
+  .adm-search-bar-input-box
+  .adm-search-bar-input.adm-input {
+    --placeholder-color: #444444;
+    --font-size: var(--adm-font-size-7);
+  }
+
+  .rhap_container {
+    background-color: var(--adm-color-box);
+  }
+  
+}

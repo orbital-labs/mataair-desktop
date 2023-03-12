@@ -1,0 +1,12 @@
+@media (prefers-color-scheme: light) {
+  :root:root {
+    --body-bg-color: #f7f7f7;
+    --container-width: 480px;
+    --container-bg-color: #fff;
+    --content-hover-color: #d3d3d3;
+    --adm-font-size-main: 16px;
+    --adm-font-family: Nunito, "Helvetica Neue", helvetica, segoe ui, arial, roboto,
+      "PingFang SC", "miui", "Hiragino Sans GB", "Microsoft Yahei", sans-serif;
+    --adm-color-primary: #366d9f;
+  }
+}

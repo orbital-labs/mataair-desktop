@@ -1,0 +1,112 @@
+@import "./font.css";
+@import "./dark.css";
+@import "./light.css";
+@import "./highlight.css";
+
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+body {
+  background-color: var(--body-bg-color);
+  margin: 0px;
+  padding: 0px;
+}
+
+a {
+  text-decoration: none;
+  color: var(--adm-text-color);
+}
+
+main {
+  width: 100%;
+  background-color: var(--container-bg-color);
+}
+
+input, select, button {
+  font-size: inherit;
+  font-family: inherit;
+}
+
+select {
+  width: 100%;
+  font-size: inherit;
+  border: none;
+}
+
+.adm-list-item {
+  background-color: var(--adm-color-box);
+}
+
+.layout {
+  display: flex;
+  overflow: hidden;
+}
+
+.sidebar {
+  flex: 0;
+  position: fixed;
+  height: 100vh;
+  box-sizing: border-box;
+}
+
+.content {
+  flex: auto;
+  overflow: auto;
+  margin-left: 240px;
+  box-sizing: border-box;
+  background-color: #fff;
+  min-height: 100vh;
+  background-color: var(--adm-color-background);
+}
+
+.no-internet {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  background: rgba(0,0,0,0.25);
+  backdrop-filter: blur(10px);
+}
+
+.list-container {
+  padding: 16px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 1fr);
+}
+
+.list-container a {
+  display: flex;
+  padding: 8px;
+  gap: 8px;
+  box-sizing: border-box;
+}
+
+.list-container a.selected,
+.list-container a:hover,
+.list-container a:focus {
+  background-color: var(--content-hover-color);
+  border-radius: 12px;
+}
+
+.grid-container {
+  padding: 16px;
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fill, 176px);
+}
+
+.grid-container a {
+  padding: 8px;
+  box-sizing: border-box;
+}
+
+.grid-container a.selected,
+.grid-container a:hover,
+.grid-container a:focus {
+  background-color: var(--content-hover-color);
+  border-radius: 12px;
+}

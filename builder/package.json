@@ -1,0 +1,15 @@
+{
+  "name": "mataair-desktop",
+  "description": "Majalah Mata Air Desktop App",
+  "productName": "Majalah Mata Air",
+  "author": {
+    "name": "Orbital Labs",
+    "email": "ops.orbital@gmail.com"
+  },
+  "main": "dist/electron/main/index.js",
+  "private": true,
+  "version": "0.0.1",
+  "devDependencies": {
+    "electron": "^23.1.2"
+  }
+}
