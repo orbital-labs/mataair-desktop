@@ -2,14 +2,15 @@
  * @see https://www.electron.build/configuration/configuration
  */
 {
-  appId: "Majalah Mataair",
+  appId: "com.orbital.mataair-desktop",
   productName: "Majalah Mataair",
-  copyright: "Copyright © 2022 ${author}",
+  copyright: "Copyright © 2023 ${author}",
   asar: true,
   directories: {
     output: "release/${version}",
     buildResources: "electron/resources"
   },
+  publish: ["github"],
   files: ["dist"],
   win: {
     target: [
