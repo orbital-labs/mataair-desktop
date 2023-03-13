@@ -29,6 +29,7 @@
   },
   mac: {
     target: ["dmg"],
+    arch: "universal",
     artifactName: "${productName}-Mac-${version}-Installer.${ext}"
   },
   linux: {
