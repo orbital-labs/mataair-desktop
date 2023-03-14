@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.7](https://github.com/orbital-labs/mataair-desktop/compare/v0.0.6...v0.0.7) (2023-03-14)
+
+
+### Bug Fixes
+
+* escape html ([aaf4cf7](https://github.com/orbital-labs/mataair-desktop/commit/aaf4cf76a654feb179cc9d06400625b643d01343))
+
 ### [0.0.6](https://github.com/orbital-labs/mataair-desktop/compare/v0.0.5...v0.0.6) (2023-03-13)
 
 ### [0.0.5](https://github.com/orbital-labs/mataair-desktop/compare/v0.0.4...v0.0.5) (2023-03-13)
