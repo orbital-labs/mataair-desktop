@@ -67,7 +67,6 @@ const template: MenuItemConstructorOptions = [
     submenu: [
       { role: "reload" },
       { role: "forceReload" },
-      { role: "toggleDevTools" },
       { type: "separator" },
       { role: "resetZoom" },
       { role: "zoomIn" },
@@ -153,8 +152,7 @@ async function createWindow() {
     webPreferences: {
       // preload: splash,
       nodeIntegration: true,
-      contextIsolation: false,
-      devTools: true
+      contextIsolation: false
     }
   });
 
