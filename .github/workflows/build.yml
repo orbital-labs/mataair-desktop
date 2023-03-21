@@ -15,7 +15,7 @@ jobs:
 
     steps:
       - name: Check out Git repository
-        uses: actions/checkout@v1
+        uses: actions/checkout@v2
 
       - name: Install Node.js, NPM and Yarn
         uses: actions/setup-node@v1
@@ -33,12 +33,27 @@ jobs:
           # release the app after building
           release: ${{ startsWith(github.ref, 'refs/tags/v') }}
 
-      - name: Duplicate Release With Asset to public_Repo
-        id: Release-AIO
-        uses: Hs1r1us/Release-AIO@v2.0.0
-        env:
-          GITHUB_TOKEN: ${{ secrets.github_token }} # You need a new token to access the target Repository
+      - name: Checkout public repository
+        uses: actions/checkout@v2
         with:
-          tag_name: "inherit" # Must use 'inherit' to get the latest release
-          repo: "mataair-desktop-release" # The format is like owner/repo
-          asset_files: "./asset_file" # Will be added in the new release
+          repository: orbital-labs/mataair-desktop-release
+          path: mataair-desktop-release
+      - name: Get tag name from ref
+        shell: bash
+        run: echo "::set-output name=tag::${GITHUB_REF#refs/tags/}"
+        id: get_tag
+      - name: Create tag in public repository
+        run: |
+          cd ${{github.workspace}}/mataair-desktop-release
+          git tag ${{ steps.get_tag.outputs.tag }}
+          git push --tags --porcelain
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.PAT }} # A personal access token
+        with:
+          tag_name: ${{ steps.get_tag.outputs.tag }}
+          release_name: Release ${{ steps.get_tag.outputs.tag }}
+          owner: ops-orbital-labs
+          repo: mataair-desktop-release
