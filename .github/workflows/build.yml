@@ -32,3 +32,13 @@ jobs:
           # If the commit is tagged with a version (e.g. "v1.0.0"),
           # release the app after building
           release: ${{ startsWith(github.ref, 'refs/tags/v') }}
+
+      - name: Duplicate Release With Asset to public_Repo
+        id: Release-AIO
+        uses: Hs1r1us/Release-AIO@v2.0.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.github_token }} # You need a new token to access the target Repository
+        with:
+          tag_name: "inherit" # Must use 'inherit' to get the latest release
+          repo: "mataair-desktop-release" # The format is like owner/repo
+          asset_files: "./asset_file" # Will be added in the new release
