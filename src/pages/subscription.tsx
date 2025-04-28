@@ -75,7 +75,7 @@ export default function Subscription() {
         </AutoCenter>
         <AutoCenter style={{ textAlign: "center" }}>
           <Link
-            to="https://mataair-pwa.orbitallabs.net/subscription/create"
+            to="https://mataair-app.orbitallabs.net/subscription/create"
             target={"_blank"}
           >
             <Button color="primary">BERLANGGANAN</Button>

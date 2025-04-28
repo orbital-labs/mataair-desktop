@@ -81,7 +81,7 @@ const MagazineDetail = () => {
                 pathname: "/magazine/reader",
                 search: `?id=${data?.data?.id}&title=${data?.data?.title}&sample=true`
               }}
-              target="_blank"
+              // target="_blank"
             >
               <Button color="primary" fill="outline">
                 Baca Sampel
@@ -103,7 +103,10 @@ const MagazineDetail = () => {
       </div>
       <div style={{ padding: 16 }}>
         <div style={{ fontSize: 18, fontWeight: "bold" }}>Deskripsi</div>
-        <div style={{ fontSize: 16 }}>{sanitize(data?.data?.description)}</div>
+        <div
+          style={{ fontSize: 16 }}
+          dangerouslySetInnerHTML={{ __html: data?.data?.description ?? "" }}
+        />
       </div>
       <Divider />
       <DownloadApp />

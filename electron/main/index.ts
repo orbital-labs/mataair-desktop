@@ -8,124 +8,124 @@ import {
   MenuItemConstructorOptions
 } from "electron";
 import { release } from "os";
-import { join } from "path";
+import path, { join } from "path";
 
 const isMac = process.platform === "darwin";
 
-const template: MenuItemConstructorOptions = [
-  // { role: 'appMenu' }
-  ...(isMac
-    ? [
-        {
-          label: app.name,
-          submenu: [
-            { role: "about" },
-            { type: "separator" },
-            { role: "services" },
-            { type: "separator" },
-            { role: "hide" },
-            { role: "hideOthers" },
-            { role: "unhide" },
-            { type: "separator" },
-            { role: "quit" }
-          ]
-        }
-      ]
-    : []),
-  // { role: 'fileMenu' }
-  {
-    label: "File",
-    submenu: [isMac ? { role: "close" } : { role: "quit" }]
-  },
-  // { role: 'editMenu' }
-  {
-    label: "Edit",
-    submenu: [
-      { role: "undo" },
-      { role: "redo" },
-      { type: "separator" },
-      { role: "cut" },
-      { role: "copy" },
-      { role: "paste" },
-      ...(isMac
-        ? [
-            { role: "pasteAndMatchStyle" },
-            { role: "delete" },
-            { role: "selectAll" },
-            { type: "separator" },
-            {
-              label: "Speech",
-              submenu: [{ role: "startSpeaking" }, { role: "stopSpeaking" }]
-            }
-          ]
-        : [{ role: "delete" }, { type: "separator" }, { role: "selectAll" }])
-    ]
-  },
-  // { role: 'viewMenu' }
-  {
-    label: "View",
-    submenu: [
-      { role: "reload" },
-      { role: "forceReload" },
-      { type: "separator" },
-      { role: "resetZoom" },
-      { role: "zoomIn" },
-      { role: "zoomOut" },
-      { type: "separator" },
-      { role: "togglefullscreen" }
-    ]
-  },
-  // { role: 'windowMenu' }
-  {
-    label: "Window",
-    submenu: [
-      { role: "minimize" },
-      { role: "zoom" },
-      ...(isMac
-        ? [
-            { type: "separator" },
-            { role: "front" },
-            { type: "separator" },
-            { role: "window" }
-          ]
-        : [{ role: "close" }])
-    ]
-  },
-  {
-    role: "help",
-    submenu: [
-      {
-        label: "Visit Website",
-        click: async () => {
-          await shell.openExternal("https://mataair.co");
-        }
-      },
-      {
-        label: "Visit Companion Website",
-        click: async () => {
-          await shell.openExternal("https://app.mataair.co");
-        }
-      },
-      {
-        label: "Download Android App",
-        click: async () => {
-          await shell.openExternal(
-            "https://play.google.com/store/apps/details?id=com.orbital.mataair"
-          );
-        }
-      },
-      {
-        label: "Download iOS App",
-        click: async () => {
-          await shell.openExternal("https://apps.apple.com/app/id1561475506");
-        }
-      }
-    ]
-  }
-];
+// const template: MenuItemConstructorOptions = [
+//   // { role: 'appMenu' }
+//   ...(isMac
+//     ? [
+//         {
+//           label: app.name,
+//           submenu: [
+//             { role: "about" },
+//             { type: "separator" },
+//             { role: "services" },
+//             { type: "separator" },
+//             { role: "hide" },
+//             { role: "hideOthers" },
+//             { role: "unhide" },
+//             { type: "separator" },
+//             { role: "quit" }
+//           ]
+//         }
+//       ]
+//     : []),
+//   // { role: 'fileMenu' }
+//   {
+//     label: "File",
+//     submenu: [isMac ? { role: "close" } : { role: "quit" }]
+//   },
+//   // { role: 'editMenu' }
+//   {
+//     label: "Edit",
+//     submenu: [
+//       { role: "undo" },
+//       { role: "redo" },
+//       { type: "separator" },
+//       { role: "cut" },
+//       { role: "copy" },
+//       { role: "paste" },
+//       ...(isMac
+//         ? [
+//             { role: "pasteAndMatchStyle" },
+//             { role: "delete" },
+//             { role: "selectAll" },
+//             { type: "separator" },
+//             {
+//               label: "Speech",
+//               submenu: [{ role: "startSpeaking" }, { role: "stopSpeaking" }]
+//             }
+//           ]
+//         : [{ role: "delete" }, { type: "separator" }, { role: "selectAll" }])
+//     ]
+//   },
+//   // { role: 'viewMenu' }
+//   {
+//     label: "View",
+//     submenu: [
+//       { role: "reload" },
+//       { role: "forceReload" },
+//       { type: "separator" },
+//       { role: "resetZoom" },
+//       { role: "zoomIn" },
+//       { role: "zoomOut" },
+//       { type: "separator" },
+//       { role: "togglefullscreen" }
+//     ]
+//   },
+//   // { role: 'windowMenu' }
+//   {
+//     label: "Window",
+//     submenu: [
+//       { role: "minimize" },
+//       { role: "zoom" },
+//       ...(isMac
+//         ? [
+//             { type: "separator" },
+//             { role: "front" },
+//             { type: "separator" },
+//             { role: "window" }
+//           ]
+//         : [{ role: "close" }])
+//     ]
+//   },
+//   {
+//     role: "help",
+//     submenu: [
+//       {
+//         label: "Visit Website",
+//         click: async () => {
+//           await shell.openExternal("https://mataair.co");
+//         }
+//       },
+//       {
+//         label: "Visit Companion Website",
+//         click: async () => {
+//           await shell.openExternal("https://app.mataair.co");
+//         }
+//       },
+//       {
+//         label: "Download Android App",
+//         click: async () => {
+//           await shell.openExternal(
+//             "https://play.google.com/store/apps/details?id=com.orbital.mataair"
+//           );
+//         }
+//       },
+//       {
+//         label: "Download iOS App",
+//         click: async () => {
+//           await shell.openExternal("https://apps.apple.com/app/id1561475506");
+//         }
+//       }
+//     ]
+//   }
+// ];
 
-const menu = Menu.buildFromTemplate(template);
-Menu.setApplicationMenu(menu);
+// const menu = Menu.buildFromTemplate(template);
+// Menu.setApplicationMenu(menu);
 
 // Disable GPU Acceleration for Windows 7
 if (release().startsWith("6.1")) app.disableHardwareAcceleration();
@@ -150,7 +150,7 @@ async function createWindow() {
   win = new BrowserWindow({
     title: "Main window",
     webPreferences: {
-      // preload: splash,
+      // preload: path.join(__dirname, "preload.js"),
       nodeIntegration: true,
       contextIsolation: false
     }
@@ -172,7 +172,7 @@ async function createWindow() {
     if (
       url.startsWith("https://play.google.com") ||
       url.startsWith("https://apps.apple.com") ||
-      url.startsWith("https://mataair-pwa.orbitallabs.net") ||
+      url.startsWith("https://mataair-app.orbitallabs.net") ||
       url.startsWith("https://mataair.co")
     ) {
       shell.openExternal(url);
@@ -182,7 +182,7 @@ async function createWindow() {
     return { action: "allow" };
   });
 
-  win.removeMenu();
+  // win.removeMenu();
 }
 
 app.whenReady().then(createWindow);
@@ -206,6 +206,15 @@ app.on("activate", () => {
     allWindows[0].focus();
   } else {
     createWindow();
+  }
+});
+
+app.setAsDefaultProtocolClient("mataair");
+
+app.on("open-url", (event, url) => {
+  event.preventDefault();
+  if (win) {
+    win.webContents.send("open-url", url);
   }
 });
 
