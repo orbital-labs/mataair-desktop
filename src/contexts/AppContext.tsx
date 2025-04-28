@@ -95,6 +95,10 @@ export const AppProvider = ({ children }: IAppProviderProps) => {
         console.error("Failed to parse payload:", error);
       }
     });
+
+    return () => {
+      ipcRenderer.removeAllListeners("open-url");
+    };
   }, []);
 
   return (

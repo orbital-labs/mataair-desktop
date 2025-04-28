@@ -12,120 +12,120 @@ import path, { join } from "path";
 
 const isMac = process.platform === "darwin";
 
-// const template: MenuItemConstructorOptions = [
-//   // { role: 'appMenu' }
-//   ...(isMac
-//     ? [
-//         {
-//           label: app.name,
-//           submenu: [
-//             { role: "about" },
-//             { type: "separator" },
-//             { role: "services" },
-//             { type: "separator" },
-//             { role: "hide" },
-//             { role: "hideOthers" },
-//             { role: "unhide" },
-//             { type: "separator" },
-//             { role: "quit" }
-//           ]
-//         }
-//       ]
-//     : []),
-//   // { role: 'fileMenu' }
-//   {
-//     label: "File",
-//     submenu: [isMac ? { role: "close" } : { role: "quit" }]
-//   },
-//   // { role: 'editMenu' }
-//   {
-//     label: "Edit",
-//     submenu: [
-//       { role: "undo" },
-//       { role: "redo" },
-//       { type: "separator" },
-//       { role: "cut" },
-//       { role: "copy" },
-//       { role: "paste" },
-//       ...(isMac
-//         ? [
-//             { role: "pasteAndMatchStyle" },
-//             { role: "delete" },
-//             { role: "selectAll" },
-//             { type: "separator" },
-//             {
-//               label: "Speech",
-//               submenu: [{ role: "startSpeaking" }, { role: "stopSpeaking" }]
-//             }
-//           ]
-//         : [{ role: "delete" }, { type: "separator" }, { role: "selectAll" }])
-//     ]
-//   },
-//   // { role: 'viewMenu' }
-//   {
-//     label: "View",
-//     submenu: [
-//       { role: "reload" },
-//       { role: "forceReload" },
-//       { type: "separator" },
-//       { role: "resetZoom" },
-//       { role: "zoomIn" },
-//       { role: "zoomOut" },
-//       { type: "separator" },
-//       { role: "togglefullscreen" }
-//     ]
-//   },
-//   // { role: 'windowMenu' }
-//   {
-//     label: "Window",
-//     submenu: [
-//       { role: "minimize" },
-//       { role: "zoom" },
-//       ...(isMac
-//         ? [
-//             { type: "separator" },
-//             { role: "front" },
-//             { type: "separator" },
-//             { role: "window" }
-//           ]
-//         : [{ role: "close" }])
-//     ]
-//   },
-//   {
-//     role: "help",
-//     submenu: [
-//       {
-//         label: "Visit Website",
-//         click: async () => {
-//           await shell.openExternal("https://mataair.co");
-//         }
-//       },
-//       {
-//         label: "Visit Companion Website",
-//         click: async () => {
-//           await shell.openExternal("https://app.mataair.co");
-//         }
-//       },
-//       {
-//         label: "Download Android App",
-//         click: async () => {
-//           await shell.openExternal(
-//             "https://play.google.com/store/apps/details?id=com.orbital.mataair"
-//           );
-//         }
-//       },
-//       {
-//         label: "Download iOS App",
-//         click: async () => {
-//           await shell.openExternal("https://apps.apple.com/app/id1561475506");
-//         }
-//       }
-//     ]
-//   }
-// ];
+const template: MenuItemConstructorOptions = [
+  // { role: 'appMenu' }
+  ...(isMac
+    ? [
+        {
+          label: app.name,
+          submenu: [
+            { role: "about" },
+            { type: "separator" },
+            { role: "services" },
+            { type: "separator" },
+            { role: "hide" },
+            { role: "hideOthers" },
+            { role: "unhide" },
+            { type: "separator" },
+            { role: "quit" }
+          ]
+        }
+      ]
+    : []),
+  // { role: 'fileMenu' }
+  {
+    label: "File",
+    submenu: [isMac ? { role: "close" } : { role: "quit" }]
+  },
+  // { role: 'editMenu' }
+  {
+    label: "Edit",
+    submenu: [
+      { role: "undo" },
+      { role: "redo" },
+      { type: "separator" },
+      { role: "cut" },
+      { role: "copy" },
+      { role: "paste" },
+      ...(isMac
+        ? [
+            { role: "pasteAndMatchStyle" },
+            { role: "delete" },
+            { role: "selectAll" },
+            { type: "separator" },
+            {
+              label: "Speech",
+              submenu: [{ role: "startSpeaking" }, { role: "stopSpeaking" }]
+            }
+          ]
+        : [{ role: "delete" }, { type: "separator" }, { role: "selectAll" }])
+    ]
+  },
+  // { role: 'viewMenu' }
+  {
+    label: "View",
+    submenu: [
+      { role: "reload" },
+      { role: "forceReload" },
+      { type: "separator" },
+      { role: "resetZoom" },
+      { role: "zoomIn" },
+      { role: "zoomOut" },
+      { type: "separator" },
+      { role: "togglefullscreen" }
+    ]
+  },
+  // { role: 'windowMenu' }
+  {
+    label: "Window",
+    submenu: [
+      { role: "minimize" },
+      { role: "zoom" },
+      ...(isMac
+        ? [
+            { type: "separator" },
+            { role: "front" },
+            { type: "separator" },
+            { role: "window" }
+          ]
+        : [{ role: "close" }])
+    ]
+  },
+  {
+    role: "help",
+    submenu: [
+      {
+        label: "Visit Website",
+        click: async () => {
+          await shell.openExternal("https://mataair.co");
+        }
+      },
+      {
+        label: "Visit Companion Website",
+        click: async () => {
+          await shell.openExternal("https://app.mataair.co");
+        }
+      },
+      {
+        label: "Download Android App",
+        click: async () => {
+          await shell.openExternal(
+            "https://play.google.com/store/apps/details?id=com.orbital.mataair"
+          );
+        }
+      },
+      {
+        label: "Download iOS App",
+        click: async () => {
+          await shell.openExternal("https://apps.apple.com/app/id1561475506");
+        }
+      }
+    ]
+  }
+];
 
-// const menu = Menu.buildFromTemplate(template);
-// Menu.setApplicationMenu(menu);
+const menu = Menu.buildFromTemplate(template);
+Menu.setApplicationMenu(menu);
 
 // Disable GPU Acceleration for Windows 7
 if (release().startsWith("6.1")) app.disableHardwareAcceleration();
@@ -209,6 +209,7 @@ app.on("activate", () => {
   }
 });
 
+// handle MacOS DeepLink
 app.setAsDefaultProtocolClient("mataair");
 
 app.on("open-url", (event, url) => {
@@ -217,6 +218,22 @@ app.on("open-url", (event, url) => {
     win.webContents.send("open-url", url);
   }
 });
+
+
+// handle Windows DeepLink
+const gotTheLock = app.requestSingleInstanceLock()
+
+if (!gotTheLock) {
+  app.quit()
+} else {
+  app.on('second-instance', (event, argv) => {
+    // Windows: protocol URL will be in argv
+    const deepLink = argv.find(arg => arg.startsWith('mataair://'))
+    if (deepLink && win) {
+      win.webContents.send('open-url', deepLink)
+    }
+  })
+}
 
 app.on("ready", () => {
   // Register a shortcut listener for Ctrl + Shift + I
