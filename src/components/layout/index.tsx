@@ -1,8 +1,8 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useLayoutEffect } from "react";
 
 import type { NavBarProps } from "antd-mobile";
 import { NavBar, SafeArea } from "antd-mobile";
-import { useNavigation, useNavigate } from "react-router-dom";
+import { useNavigation, useNavigate, useLocation } from "react-router-dom";
 
 import { getItem } from "@/utils/local-storage";
 
@@ -38,6 +38,13 @@ export default function Layout({
       });
     }
   }, [protectedRoute, router]);
+
+  const location = useLocation();
+
+  useLayoutEffect(() => {
+    // Scroll to the top of the page when the route changes
+    window.scrollTo({ top: 0, left: 0 });
+  }, [location.pathname]);
 
   return (
     <div className="container" style={style}>

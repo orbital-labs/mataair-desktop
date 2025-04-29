@@ -9,11 +9,15 @@ import appStore from "@/assets/icons/ic-download-ios.svg";
 
 type DownloadAppProps = {
   title?: string | boolean;
+  show?: boolean;
 };
 
 export default function DownloadApp({
-  title = "Untuk pengalaman lebih baik, silakan download aplikasi sekarang juga!"
+  title = "Untuk pengalaman lebih baik, silakan download aplikasi sekarang juga!",
+  show = false
 }: DownloadAppProps) {
+  if (!show) return null;
+  
   return (
     <>
       {title !== false && <div style={{ textAlign: "center" }}>{title}</div>}
