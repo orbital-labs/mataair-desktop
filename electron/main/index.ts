@@ -8,7 +8,7 @@ import {
   MenuItemConstructorOptions
 } from "electron";
 import { release } from "os";
-import { join } from "path";
+import path, { join } from "path";
 
 const isMac = process.platform === "darwin";
 
@@ -150,7 +150,7 @@ async function createWindow() {
   win = new BrowserWindow({
     title: "Main window",
     webPreferences: {
-      // preload: splash,
+      // preload: path.join(__dirname, "preload.js"),
       nodeIntegration: true,
       contextIsolation: false
     }
@@ -172,7 +172,7 @@ async function createWindow() {
     if (
       url.startsWith("https://play.google.com") ||
       url.startsWith("https://apps.apple.com") ||
-      url.startsWith("https://mataair-pwa.orbitallabs.net") ||
+      url.startsWith("https://mataair-app.orbitallabs.net") ||
       url.startsWith("https://mataair.co")
     ) {
       shell.openExternal(url);
@@ -182,7 +182,7 @@ async function createWindow() {
     return { action: "allow" };
   });
 
-  win.removeMenu();
+  // win.removeMenu();
 }
 
 app.whenReady().then(createWindow);
@@ -208,6 +208,32 @@ app.on("activate", () => {
     createWindow();
   }
 });
+
+// handle MacOS DeepLink
+app.setAsDefaultProtocolClient("mataair");
+
+app.on("open-url", (event, url) => {
+  event.preventDefault();
+  if (win) {
+    win.webContents.send("open-url", url);
+  }
+});
+
+
+// handle Windows DeepLink
+const gotTheLock = app.requestSingleInstanceLock()
+
+if (!gotTheLock) {
+  app.quit()
+} else {
+  app.on('second-instance', (event, argv) => {
+    // Windows: protocol URL will be in argv
+    const deepLink = argv.find(arg => arg.startsWith('mataair://'))
+    if (deepLink && win) {
+      win.webContents.send('open-url', deepLink)
+    }
+  })
+}
 
 app.on("ready", () => {
   // Register a shortcut listener for Ctrl + Shift + I

@@ -112,7 +112,10 @@ const PodcastDetail = () => {
       </div>
       <div style={{ padding: 16 }}>
         <div style={{ fontSize: 18, fontWeight: "bold" }}>Deskripsi</div>
-        <div style={{ fontSize: 16 }}>{sanitize(data?.data?.description)}</div>
+        <div
+          style={{ fontSize: 16 }}
+          dangerouslySetInnerHTML={{ __html: data?.data?.description ?? "" }}
+        ></div>
         {isSubs && data?.data?.magazine_id && (
           <>
             <Space style={{ alignItems: "center" }}>

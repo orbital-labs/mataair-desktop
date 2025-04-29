@@ -4,7 +4,7 @@
 {
   appId: "Majalah Mataair",
   productName: "Majalah Mataair",
-  copyright: "Copyright © 2022 ${author}",
+  copyright: "Copyright © 2024 ${author}",
   asar: true,
   directories: {
     output: "release/${version}",
@@ -14,18 +14,13 @@
   win: {
     target: [
       {
-        target: "nsis",
+        target: "msi",
         arch: ["x64"]
       }
     ],
     artifactName: "${productName}-Windows-${version}-Setup.${ext}"
   },
-  nsis: {
-    oneClick: false,
-    perMachine: false,
-    allowToChangeInstallationDirectory: true,
-    deleteAppDataOnUninstall: false
-  },
+  afterSign: "electron-builder-notarize",
   mac: {
     target: [
       {
@@ -33,6 +28,8 @@
         arch: "universal"
       }
     ],
+    hardenedRuntime: true,
+    entitlements: "./node_modules/electron-builder-notarize/entitlements.mac.inherit.plist",
     artifactName: "${productName}-Mac-${version}-Installer.${ext}"
   },
   linux: {

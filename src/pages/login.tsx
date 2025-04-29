@@ -1,8 +1,18 @@
 import React, { useEffect } from "react";
 
+import { shell } from "electron";
 import { useMutation } from "@tanstack/react-query";
-import { AutoCenter, Button, Form, Input, Space, Toast } from "antd-mobile";
+import {
+  AutoCenter,
+  Button,
+  Divider,
+  Form,
+  Input,
+  Space,
+  Toast
+} from "antd-mobile";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import googleIcon from "@/assets/icons/google_g_icon.png";
 
 import Layout from "@/components/layout";
 import { setAuth, useAppContext } from "@/contexts/index";
@@ -81,7 +91,43 @@ export default function Login() {
         </Form>
 
         <AutoCenter>
+          <Button
+            color="default"
+            onClick={() => {
+              shell.openExternal(
+                "https://mataair-app.orbitallabs.net/desktop-login/"
+              );
+            }}
+          >
+            <Space style={{ display: "flex", alignItems: "center" }}>
+              <img
+                src={googleIcon}
+                alt="Google Icon"
+                style={{ width: 24, height: 24 }}
+              />
+              <span>Login dengan Google</span>
+            </Space>
+          </Button>
+        </AutoCenter>
+
+        <AutoCenter>
           Lupa password? <Link to="/forgot-password">Klik disini</Link>
+        </AutoCenter>
+
+        <Divider />
+        <AutoCenter>
+          Belum punya akun? Klik{" "}
+          <Link
+            to="#"
+            onClick={() =>
+              shell.openExternal(
+                "https://mataair-app.orbitallabs.net/register?redirect=desktop-login"
+              )
+            }
+          >
+            Daftar melalui website
+          </Link>{" "}
+          disini
         </AutoCenter>
       </Space>
     </Layout>
